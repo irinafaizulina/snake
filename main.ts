@@ -336,8 +336,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kind_tail, function (sprite, oth
     if (how_hard_the_level_is != 1) {
         for (let value of tail_list) {
             if (value != otherSprite) {
-                if (tail_list.indexOf(value) != 1) {
-                    game.gameOver(false)
+                if (tail_list.indexOf(value) != info.score()) {
+                    if (head.x == value.x && head.y == value.y) {
+                        game.gameOver(false)
+                    }
                 }
             }
         }
